@@ -1,5 +1,5 @@
 import User from '../models/UserSchema.js'
-import Admin from '../models/Adminschema.js'
+import Admin from '../models/AdminSchema.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
@@ -44,7 +44,7 @@ export const register = async(req,res)=>{
         }
 
         if(role=='admin'){
-            user = new User({
+            user = new Admin({
                 name,
                 email,
                 password:hashPassword,
@@ -58,11 +58,12 @@ export const register = async(req,res)=>{
 
 
 
-       
-        } catch (err) {
-            res.status(500).json({ error: err.message });
-        }
-        
+    }catch(err){
+        res.status(500).json({success:false,message: 'Internal server error, Try again'});
+
+
+
+    }
 };
 
 export const login = async(req,res) => {
@@ -108,7 +109,6 @@ export const login = async(req,res) => {
         });
 
     }catch(err){
-        // res.status(500).json({ status: false, message: "Failed to login"});
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ status: false, message: "Failed to login"});
     }
 };

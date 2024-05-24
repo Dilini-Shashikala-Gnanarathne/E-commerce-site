@@ -3,7 +3,11 @@ import cookieparser from "cookie-parser";
 import cors from 'cors';
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
-import authRoute from "./Routes/auth.js"; 
+import authRoute from "./Routes/auth.js";
+import userRoute from "./Routes/user.js";
+import adminRoute from "./Routes/admin.js";
+import { errorHandler } from './middleware/errorHandler.js'; // Use ES Module import syntax
+
 dotenv.config();
 
 const app = express();
@@ -31,14 +35,15 @@ const connectDB = async () => {
     }
 };
 
-// // Middleware
+// Middleware
 app.use(express.json());
 app.use(cookieparser());
 app.use(cors(corsOptions));
 app.use('/api/v1/auth', authRoute); // domain/api/v1/auth/register
-// app.use('/api/v1/users', userRoute);
-// app.use('/api/v1/Admins', AdminRoute);
-// app.use(errorHandler); // Ensure this is an ES Module import
+app.use('/api/v1/users', userRoute);
+app.use('/api/v1/admins', adminRoute);
+app.use(errorHandler); // Ensure this is an ES Module import
+
 
 app.listen(port, () => {
     connectDB();

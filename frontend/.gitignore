@@ -6,9 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-context
-routes
-utils
 
 node_modules
 dist
