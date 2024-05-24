@@ -60,9 +60,9 @@ const Login = () => {
     }
   };
   return (
-    <section className='px-1 lg:px-0'>
+    <section className='fixed inset-0 flex items-center justify-center px-1 lg:px-0'>
 
-      <div className="bg-cellwhiteColor w-full max-w-[80%] mx-auto rounded-lg shadow-md md:p-10 object-cover ">
+      <div className="bg-cellwhiteColor w-full max-w-[80%] mx-auto rounded-lg shadow-md md:p-10  ">
         <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
           <div>
             <img src={logo}/>
