@@ -51,7 +51,7 @@ const Login = () => {
       toast.success(result.message)
      // console.log(user);
 
-      navigate('/home')
+      navigate('/dashboard')
 
     }catch (err) {
       toast.error(err.message)
@@ -69,7 +69,8 @@ const Login = () => {
           <p className='text-[25px] text-b py-4'>Stock Management System</p>
         <form className='py-6 md:py-20 bg-greyColor w-full max-w-[70%] mx-auto rounded-lg shadow-md md:p-5' onSubmit={submitHandler}>
           Login
-          <div className="mb-5">   
+          <div className="mb-5">
+            
             <input type='email' placeholder='Enter Your Email' name='email' value={formData.email} onChange={handleInputChange}
             className='w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none
             focus:border-b border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor  cursor-pointer' required
