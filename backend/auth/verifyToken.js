@@ -1,51 +1,57 @@
-import jwt from "jsonwebtoken";
-import Admin from "../models/AdminSchema.js";
-import User from "../models/UserSchema.js";
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const User = require('../models/UserSchema');
 
-export const authenticate = async (req, res, next) => {
-    const authToken = req.headers.authorization;
+const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
 
-    if (!authToken || !authToken.startsWith("Bearer")){
-        return res
-        .status(401)
-        .json({success: false, message: "No token, authorization denied"});
+  if (!token) {
+    return res.sendStatus(401); 
+  }
+
+  try {
+    console.log('Token:', token); 
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_key);
+    console.log('Decoded Token:', decoded); 
+
+    const foundUser = await User.findOne({ email: decoded.email });
+    if (!foundUser) {
+      return res.sendStatus(404); 
     }
-    try{
-        const token = authToken.split(" ")[1];
 
-        //verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
-
-        req.userId = decoded.id
-        req.role = decoded.role
-        next();
-    }catch(err){
-        if(err.name =='TokenExpiredError'){
-            return res.status(401).json({message: "Token is expired"});
-        }
-        return res.status(401).json({success: false,message: "Invalid token"});
-    }
+    req.user = foundUser;
+    console.log('Authenticated User:', req.user.email); 
+    next();
+  } catch (error) {
+    console.error('Authentication Error:', error);
+    res.status(403).json({ success: false, message: 'Forbidden', error: error.message });
+  }
 };
 
-export const restrict = roles => async (req,res, next) => {
-    const userId = req.userId;
-
-    let user;
-
-    const viewer = await User.findById(userId);
-    const admin = await Admin.findById(userId);
-
-    if(viewer){
-        user = viewer;
+const getUserData = async (email) => {
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error('User not found');
     }
-    if(admin){
-        user = admin;
-    }
-    if(!roles.includes(user.role)){
-        return res
-        .status(401)
-        .json({success: false, message: "You're not authorized"});
-    }
-    next();
+    return user;
+  } catch (error) {
+    throw new Error('Error fetching user data');
+  }
+};
 
-}
+const verifyUser = async (req, res) => {
+  try {
+    const user = await getUserData(req.user.email);
+    res.json(user);
+  } catch (err) {
+    console.error('Error fetching user:', err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+module.exports = {
+  authenticateToken,
+  verifyUser
+};
