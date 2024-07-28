@@ -15,7 +15,7 @@ import eight from "./Pictures/25.jpg";
 import nine from "./Pictures/27.jpg";
 import ten from "./Pictures/29.jpg";
 import {Link} from 'react-router-dom';
-
+import NewsLetter from "../Components/NewsLetter/NewsLetter"
 import "./Home.css"
 const Home = () => {
   return (
@@ -138,6 +138,9 @@ const Home = () => {
             )
           )}
         </Row>
+        <Row className="mt-3">
+          <NewsLetter/>
+          </Row>
       </div>
     </Container>
   );
