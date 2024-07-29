@@ -1,0 +1,161 @@
+/* Styles for categories */
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  .col-4 {
+    flex-basis: 2%;
+    padding: 0px;
+    width: auto;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  
+  .col-4 .list {
+    align-content: center;
+  }
+  
+  .col-4:hover {
+    transform: translateY(-10px);
+  }
+  
+  .list {
+    color: rgb(17, 12, 12);
+    font-size: 18px;
+    line-height: 20px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .button {
+    display: inline-block;
+    background: #6d6564;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    transition: background 0.5s;
+  }
+  
+  .button:hover {
+    background: #030303;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    letter-spacing: 1px;
+  }
+  
+  .Account-page {
+    width: 325px;
+    height: 425px;
+    position: relative;
+    text-align: center;
+    padding-top: 20px; 
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgb(182, 182, 187);
+    overflow: hidden;
+    padding-left: 50px;
+    align-items: center;
+  }
+  
+  .title {
+    text-align: center;
+    margin: 0 auto 40px;
+    position: relative;
+    line-height: 60px;
+    font-size: 25px;
+    padding-top: 50px;
+  }
+  
+  .title::after {
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  h4 {
+    color: rgb(32, 6, 6);
+    font-weight: normal;
+    font-size: 25px;
+  }
+  
+  .col-4:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Dropdown styles */
+  .nav1 {
+    padding-top: 10px;
+    padding-bottom: 350px;
+    padding-left:1px;
+
+    width: 1225px;
+  }
+  
+  .nav1 ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav1 ul li {
+    background: #f3f3f3;
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    width: 200px;
+  }
+  
+  .nav1 ul li a {
+    display: block;
+    padding: 0 15px;
+    color: rgb(8, 8, 8);
+    text-decoration: none;
+    line-height: 60px;
+    font-size: 16px;
+  }
+  
+  .nav1 ul li a:hover {
+    border: 1px solid rgb(213, 19, 19);
+    border-radius: 3px;
+  }
+  
+  .nav1 ul ul {
+    position: absolute;
+    top: 60px;
+    display: none;
+  }
+  
+  .nav1 ul li:hover > ul {
+    display: block;
+  }
+  
+  .nav1 ul ul li {
+    width: 200px;
+    float: none;
+    display: list-item;
+    position: relative;
+  }
+  
+  .nav1 ul ul li a {
+    font-size: 14px;
+  }
+  

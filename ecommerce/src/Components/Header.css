@@ -1,0 +1,19 @@
+.navigationbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 2px outset rgb(48, 53, 58);
+    background-color: white; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .me-auto {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-left: 500px;
+  }
+  
