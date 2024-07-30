@@ -8,7 +8,7 @@ import Details from '../pages/Details'
 import Account from '../pages/Account'
 import Cart from '../pages/cart';
 import {Routes, Route} from 'react-router-dom'
-
+import UserProfile from '../pages/UserProfile'
 
 const Routers = () => {
   return <Routes>
@@ -20,6 +20,7 @@ const Routers = () => {
     <Route path="/about" element={<About />} />
     <Route path="/account" element={<Account />} />
     <Route path="/cart" element={<Cart />} />
+    <Route path='/userProfile' element={<UserProfile/>}/>
 
   </Routes>
     
