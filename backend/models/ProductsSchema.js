@@ -1,45 +1,41 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const productSchema = new mongoose.Schema({
+
+const productSchema = new Schema({
+  id: {
+      type: Number,
+      required: true,     
+  },
   name: {
-    type: String,
-    required: true,
-    trim: true,
-    maxlength: 100
+      type: String,
+      required: true,
   },
-  description: {
-    type: String,
-    trim: true,
-    maxlength: 1000
-  },
-  price: {
-    type: Number,
-    required: true,
-    min: 0
+  image: {
+      type: String,
+      required: true,
   },
   category: {
-    type: String,
-    required: true,
-    trim: true
+      type: String,
+      required: true,
   },
-  stockQuantity: {
-    type: Number,
-    required: true,
-    min: 0
+  new_price: {
+      type: Number,
+      required: true,
   },
-  images: [{
-    type: String
-  }],
-  createdAt: {
-    type: Date,
-    default: Date.now
+  old_price: {
+      type: Number,
+      required: true,
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  }
+  date: {
+      type: Date,
+      default: Date.now,
+  },
+  available: {
+      type: Boolean,
+      default: true,
+  },
 });
-
 
 const Product = mongoose.model('Product', productSchema);
 

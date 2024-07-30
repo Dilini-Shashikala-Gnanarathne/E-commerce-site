@@ -9,7 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import Cart from '../pages/cart.js';
 export default function Searchbar() {
   const navigate= useNavigate();
 
@@ -34,7 +34,7 @@ export default function Searchbar() {
               <Offcanvas.Title>Cart</Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-              Added Items will appear here
+                <Cart/>
               </Offcanvas.Body>
              </Offcanvas>
 
