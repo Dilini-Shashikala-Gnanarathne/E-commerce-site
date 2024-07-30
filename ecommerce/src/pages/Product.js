@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import Axios from 'axios'
 import './Product.css';
 import { Table, Button } from 'react-bootstrap';
 
@@ -33,6 +35,9 @@ import Image29 from './Pictures/29.jpg';
 import Image30 from './Pictures/30.jpg';
 import Image31 from './Pictures/31.jpg';
 import Image32 from './Pictures/32.jpg';
+
+
+
 
 const categories = [
   {
@@ -137,10 +142,13 @@ const Category = ({ sectionId, sectionTitle, items, cartItems, addToCart, remove
   </div>
 );
 
+
 const Product = () => {
   const [cartItems, setCartItems] = useState([]);
+  const { user } = useAuth('dil@gmail.com');
+  const [error, setError] = useState(null);
 
-  const addToCart = (id, title) => {
+  const addToCart = (id) => {
     const product = categories.flatMap(category => category.items).find(item => item.id === id);
     setCartItems((prevCartItems) => [...prevCartItems, product]);
   };
@@ -153,6 +161,28 @@ const Product = () => {
 
   const calculateTotalAmount = () => {
     return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+  };
+
+  const handleAddToCart = () => {
+    if (!user) {
+      setError('User is not authenticated');
+      return;
+    }
+
+    const updates = cartItems.map(item => ({ totalAmount: item.price }));
+
+    Axios.put('http://localhost:3001/api/cart', { email: user.email, updates })
+      .then(() => {
+        setCartItems([]);
+        setError(null);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setError(error.response.data.error);
+        } else {
+          setError('An unexpected error occurred');
+        }
+      });
   };
 
   return (
@@ -189,6 +219,11 @@ const Product = () => {
             <tr>
               <td colSpan="2">Total Amount</td>
               <td>{calculateTotalAmount()}</td>
+              <td>
+                <Button variant="success" onClick={handleAddToCart}>
+                  Buy Now
+                </Button>
+              </td>
             </tr>
           </tfoot>
         </Table>

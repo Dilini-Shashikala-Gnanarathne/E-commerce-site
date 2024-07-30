@@ -7,7 +7,7 @@ const getUser = async (req, res) => {
   try {
     console.log('Request Body:', req.body);
 
-    let record = await User.findOne({ email })|| Admin.findOne({ email});
+    let record = await User.findOne({ email })
     if (record) {
       return res.status(200).json({
         success: true,

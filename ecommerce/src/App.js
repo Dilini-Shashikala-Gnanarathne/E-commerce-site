@@ -1,10 +1,17 @@
-import "./App.css";
-import Layout from "./layout/layout.js";
-
-function App() {
+import React from 'react';
+import Routers from './Router/Router'; // Adjust the path as needed
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+const App = () => {
   return (
-    <Layout />
+    <div>
+      <Header />
+      <main>
+        <Routers />      
+      </main>
+      <Footer />
+    </div>
   );
-}
+};
 
 export default App;
