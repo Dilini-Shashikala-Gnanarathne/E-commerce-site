@@ -142,15 +142,16 @@ const Category = ({ sectionId, sectionTitle, items, cartItems, addToCart, remove
   </div>
 );
 
-
 const Product = () => {
   const [cartItems, setCartItems] = useState([]);
-  const { user } = useAuth('dil@gmail.com');
+  const { user } = useAuth();
   const [error, setError] = useState(null);
 
   const addToCart = (id) => {
     const product = categories.flatMap(category => category.items).find(item => item.id === id);
-    setCartItems((prevCartItems) => [...prevCartItems, product]);
+    if (product) {
+      setCartItems((prevCartItems) => [...prevCartItems, product]);
+    }
   };
 
   const removeFromCart = (id) => {
@@ -168,17 +169,15 @@ const Product = () => {
       setError('User is not authenticated');
       return;
     }
-
-    const updates = cartItems.map(item => ({ totalAmount: item.price }));
-
-    Axios.put('http://localhost:3001/api/cart', { email: user.email, updates })
+    const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+    Axios.post('http://localhost:3001/api/cart', { email: user.email, totalAmount })
       .then(() => {
-        setCartItems([]);
-        setError(null);
+        console.log('Cart updated successfully');
+        // Optionally: Clear cart or handle post-update logic
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
-          setError(error.response.data.error);
+          setError(error.response.data.message);
         } else {
           setError('An unexpected error occurred');
         }

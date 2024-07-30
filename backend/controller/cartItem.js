@@ -4,7 +4,7 @@ const updateCart = async (req, res, cartField) => {
   const { email, totalAmount } = req.body;
 
   try {
-    console.log('Request Body:', req.body);
+    console.log('Request Body 8:', req.body);
 
     if (typeof totalAmount !== 'number') {
       return res.status(400).json({

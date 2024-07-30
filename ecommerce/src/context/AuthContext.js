@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           }
         };
 
-        const response = await Axios.get('http://localhost:3001/api/getUser', config);
+        const response = await Axios.get('http://localhost:3001/api/user', config);
         setUser(response.data);
         console.log(response.data.email);
       } catch (error) {
