@@ -158,6 +158,7 @@ const Product = () => {
     setCartItems((prevCartItems) =>
       prevCartItems.filter((item) => item.id !== id)
     );
+    handleAddToCart();
   };
 
   const calculateTotalAmount = () => {
@@ -173,7 +174,6 @@ const Product = () => {
     Axios.post('http://localhost:3001/api/cart', { email: user.email, totalAmount })
       .then(() => {
         console.log('Cart updated successfully');
-        // Optionally: Clear cart or handle post-update logic
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {

@@ -47,7 +47,7 @@ export default function Searchbar() {
                                 <Card.Text><strong>Country:</strong> {user.country}</Card.Text>
                                 <Card.Text><strong>Phone Number:</strong> {user.phoneNumber}</Card.Text>
                                 <Card.Text><strong>Postal Code:</strong> {user.postalCode || 'Not provided'}</Card.Text>
-                                <Card.Text><strong>Shipped:</strong> {user.ship || "Not Shipped"}</Card.Text>
+                                <Card.Text><strong>Shipped:</strong> {user.ship || "Not Ship"}</Card.Text>
                                 <Card.Text><strong>Cart Total Amount:</strong> {user.cart?.totalAmount || '0'}</Card.Text>
                             </Col>
                         </Row>
