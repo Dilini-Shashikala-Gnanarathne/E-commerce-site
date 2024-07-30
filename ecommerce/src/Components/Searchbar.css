@@ -14,3 +14,10 @@
     top: 5px;
     left: 155%;
 }
+
+.logout_icon{
+    font-size: 140%;
+    position: absolute;
+    top: 5px;
+    left: 255%;
+}
