@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Product.css';
+import { Table, Button } from 'react-bootstrap';
+
 import Image1 from './Pictures/1.jpg';
 import Image2 from './Pictures/2.jpg';
 import Image3 from './Pictures/3.jpg';
@@ -37,68 +39,68 @@ const categories = [
     sectionId: "wsection",
     sectionTitle: "WOMEN'S FASHION",
     items: [
-      { id: "w1", title: "Women's Clothing", imgSrc: Image1, description: "Kurtis Frock", price: "LKR 5,000.00" },
-      { id: "w2", title: "Cosmetics", imgSrc: Image2, description: "Branded Cosmetics", price: "LKR 2500.00" },
-      { id: "w3", title: "Women's Watches", imgSrc: Image2, description: "Quartz", price: "LKR 1000.00" },
-      { id: "w4", title: "Women's Sunglasses", imgSrc:Image3, description: "Luxury Watch", price: "LKR 1500.00" },
-      { id: "w5", title: "Handbags & Clutches", imgSrc: Image4, description: "Casual Handbag", price: "LKR 1600.00" },
-      { id: "w6", title: "Slippers", imgSrc: Image5, description: "Nilsara", price: "LKR 1750.00" },
+      { id: "w1", title: "Women's Clothing", imgSrc: Image1, description: "Kurtis Frock", price: 5000.00 },
+      { id: "w2", title: "Cosmetics", imgSrc: Image2, description: "Branded Cosmetics", price: 2500.00 },
+      { id: "w3", title: "Women's Watches", imgSrc: Image2, description: "Quartz", price: 1000.00 },
+      { id: "w4", title: "Women's Sunglasses", imgSrc: Image3, description: "Luxury Watch", price: 1500.00 },
+      { id: "w5", title: "Handbags & Clutches", imgSrc: Image4, description: "Casual Handbag", price: 1600.00 },
+      { id: "w6", title: "Slippers", imgSrc: Image5, description: "Nilsara", price: 1750.00 },
     ],
   },
-   {
+  {
     sectionId: "msection",
     sectionTitle: "MEN'S FASHION",
     items: [
-      { id: "m1", title: "Men's Clothing", imgSrc: Image7, description: "T-Shirt", price: "LKR 800.00" },
-      { id: "m2", title: "Men's Belts", imgSrc: Image8, description: "Belt", price: "LKR 599.00" },
-      { id: "m3", title: "Men's Watches", imgSrc: Image9, description: "Luxury Watch", price: "LKR 2000.00" },
-      { id: "m4", title: "Men's Sunglasses", imgSrc: Image10, description: "Luxury Fashion", price: "LKR 900.00" },
-      { id: "m5", title: "Men's Wallets", imgSrc: Image11, description: "Luxury Time", price: "LKR 2500.00" },
-      { id: "m6", title: "Men's Shoes", imgSrc: Image12, description: "Sneaker Shoes", price: "LKR 1700.00" },
+      { id: "m1", title: "Men's Clothing", imgSrc: Image7, description: "T-Shirt", price: 800.00 },
+      { id: "m2", title: "Men's Belts", imgSrc: Image8, description: "Belt", price: 599.00 },
+      { id: "m3", title: "Men's Watches", imgSrc: Image9, description: "Luxury Watch", price: 2000.00 },
+      { id: "m4", title: "Men's Sunglasses", imgSrc: Image10, description: "Luxury Fashion", price: 900.00 },
+      { id: "m5", title: "Men's Wallets", imgSrc: Image11, description: "Luxury Time", price: 2500.00 },
+      { id: "m6", title: "Men's Shoes", imgSrc: Image12, description: "Sneaker Shoes", price: 1700.00 },
     ],
   },
   {
     sectionId: "ksection",
     sectionTitle: "KIDS FASHION",
     items: [
-      { id: "k1", title: "Boys Clothing", imgSrc: Image30, description: "Full Dress", price: "LKR 750.00" },
-      { id: "k2", title: "Girls Clothing", imgSrc: Image31, description: "Frock", price: "LKR 850.00" },
-      { id: "k3", title: "Baby Clothing", imgSrc: Image32, description: "Snap", price: "LKR 750.00" },
+      { id: "k1", title: "Boys Clothing", imgSrc: Image30, description: "Full Dress", price: 750.00 },
+      { id: "k2", title: "Girls Clothing", imgSrc: Image31, description: "Frock", price: 850.00 },
+      { id: "k3", title: "Baby Clothing", imgSrc: Image32, description: "Snap", price: 750.00 },
     ],
   },
   {
     sectionId: "csection",
     sectionTitle: "COSMETICS",
     items: [
-      { id: "c1", title: "Eyeliner & Eyeshadow", imgSrc: Image13, description: "Luxury Brand Cosmetics", price: "LKR 1250.00" },
-      { id: "c2", title: "Lipstick & Lipliners", imgSrc: Image14, description: "Luxury Lipsticks", price: "LKR 1500.00" },
-      { id: "c3", title: "Foundation & Concealers", imgSrc: Image15, description: "Luxury Foundation", price: "LKR 1000.00" },
-      { id: "c4", title: "Jewellery", imgSrc: Image16, description: "Luxury Jewellery set", price: "LKR 850.00" },
-      { id: "c5", title: "Accessories", imgSrc: Image17, description: "Diamond", price: "LKR 3500.00" },
-      { id: "c6", title: "Nail Accessories", imgSrc: Image18, description: "Red Nail", price: "LKR 250.00" },
+      { id: "c1", title: "Eyeliner & Eyeshadow", imgSrc: Image13, description: "Luxury Brand Cosmetics", price: 1250.00 },
+      { id: "c2", title: "Lipstick & Lipliners", imgSrc: Image14, description: "Luxury Lipsticks", price: 1500.00 },
+      { id: "c3", title: "Foundation & Concealers", imgSrc: Image15, description: "Luxury Foundation", price: 1000.00 },
+      { id: "c4", title: "Jewellery", imgSrc: Image16, description: "Luxury Jewellery set", price: 850.00 },
+      { id: "c5", title: "Accessories", imgSrc: Image17, description: "Diamond", price: 3500.00 },
+      { id: "c6", title: "Nail Accessories", imgSrc: Image18, description: "Red Nail", price: 250.00 },
     ],
   },
   {
     sectionId: "hsection",
     sectionTitle: "HOME & LIVING",
     items: [
-      { id: "h1", title: "Artificial Flowers", imgSrc: Image19, description: "Pink Flower", price: "LKR 550.00" },
-      { id: "h2", title: "Wall Tapestries", imgSrc: Image20, description: "Pink Wall", price: "LKR 800.00" },
-      { id: "h3", title: "Wall Stickers", imgSrc: Image21, description: "Pink Stickers", price: "LKR 500.00" },
-      { id: "h4", title: "Dreamcatchers", imgSrc: Image22, description: "Pink Dreamcatchers", price: "LKR 750.00" },
-      { id: "h5", title: "Wall Clocks", imgSrc: Image23, description: "Pink Brand", price: "LKR 1500.00" },
-      { id: "h6", title: "Wall Shelves", imgSrc: Image24, description: "Pink", price: "LKR 850.00" },
+      { id: "h1", title: "Artificial Flowers", imgSrc: Image19, description: "Pink Flower", price: 550.00 },
+      { id: "h2", title: "Wall Tapestries", imgSrc: Image20, description: "Pink Wall", price: 800.00 },
+      { id: "h3", title: "Wall Stickers", imgSrc: Image21, description: "Pink Stickers", price: 500.00 },
+      { id: "h4", title: "Dreamcatchers", imgSrc: Image22, description: "Pink Dreamcatchers", price: 750.00 },
+      { id: "h5", title: "Wall Clocks", imgSrc: Image23, description: "Pink Brand", price: 1500.00 },
+      { id: "h6", title: "Wall Shelves", imgSrc: Image24, description: "Pink", price: 850.00 },
     ],
   },
   {
     sectionId: "gsection",
     sectionTitle: "THE GIFT CORNER",
     items: [
-      { id: "g1", title: "Cards", imgSrc: Image25, description: "Card", price: "LKR 250.00" },
-      { id: "g2", title: "Exclusive Gift Ideas", imgSrc: Image26, description: "Magic Box", price: "LKR 1500.00" },
-      { id: "g3", title: "Gift Vouchers", imgSrc: Image27, description: "Best Voucher", price: "LKR 750.00" },
-      { id: "g4", title: "Snowglobe", imgSrc: Image28, description: "Purple Snowglobe", price: "LKR 700.00" },
-      { id: "g5", title: "Teddy Bears", imgSrc: Image29, description: "Best Teddy", price: "LKR 1250.00" },
+      { id: "g1", title: "Cards", imgSrc: Image25, description: "Card", price: 250.00 },
+      { id: "g2", title: "Exclusive Gift Ideas", imgSrc: Image26, description: "Magic Box", price: 1500.00 },
+      { id: "g3", title: "Gift Vouchers", imgSrc: Image27, description: "Best Voucher", price: 750.00 },
+      { id: "g4", title: "Snowglobe", imgSrc: Image28, description: "Purple Snowglobe", price: 700.00 },
+      { id: "g5", title: "Teddy Bears", imgSrc: Image29, description: "Best Teddy", price: 1250.00 },
     ],
   },
 ];
@@ -113,7 +115,7 @@ const Category = ({ sectionId, sectionTitle, items, cartItems, addToCart, remove
             <h4 className="Acc"><a name={item.id}></a>{item.title}</h4><br />
             <div className="list">
               <img src={item.imgSrc} className="offer-img" alt={item.title} />
-              <br />{item.description}<br />{item.price}<br/>
+              <br />{item.description}<br />{item.price.toFixed(2)}<br/>
               {cartItems.some(cartItem => cartItem.id === item.id) ? (
                 <button
                   className="btn btn-danger"
@@ -122,7 +124,7 @@ const Category = ({ sectionId, sectionTitle, items, cartItems, addToCart, remove
                   Remove from Cart
                 </button>
               ) : (
-                <button className="btn btn-danger" onClick={() => addToCart(item.id,item.title)}>
+                <button className="btn btn-danger" onClick={() => addToCart(item.id, item.title)}>
                   Add to Cart
                 </button>
               )}
@@ -138,7 +140,7 @@ const Category = ({ sectionId, sectionTitle, items, cartItems, addToCart, remove
 const Product = () => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (id) => {
+  const addToCart = (id, title) => {
     const product = categories.flatMap(category => category.items).find(item => item.id === id);
     setCartItems((prevCartItems) => [...prevCartItems, product]);
   };
@@ -149,26 +151,47 @@ const Product = () => {
     );
   };
 
+  const calculateTotalAmount = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+  };
+
   return (
     <div className="small-container">
       <h2 className="mt-4 mb-4">Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p>Cart is Empty</p>
       ) : (
-        <ul className="list-group">
-          {cartItems.map((item) => (
-            <li className="list-group-item" key={item.id}>
-              {item.title}
-              {item.price}
-              <button
-                className="btn btn-danger float-end"
-                onClick={() => removeFromCart(item.id)}
-              >
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartItems.map((item) => (
+              <tr key={item.id}>
+                <td>{item.title}</td>
+                <td>{item.price.toFixed(2)}</td>
+                <td>
+                  <Button
+                    variant="danger"
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    Remove
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="2">Total Amount</td>
+              <td>{calculateTotalAmount()}</td>
+            </tr>
+          </tfoot>
+        </Table>
       )}
       <h2 className="title">ALL CATEGORIES</h2>
       <div className="nav1">
@@ -196,7 +219,6 @@ const Product = () => {
           removeFromCart={removeFromCart}
         />
       ))}
-      
     </div>
   );
 };
