@@ -5,7 +5,7 @@ const message = async (req, res) => {
     email,
     password,
     message,
-    phoneNumber,
+    phoneNumber,role,
 } = req.body;
 
   try {
@@ -18,7 +18,7 @@ const message = async (req, res) => {
 
     
 
-    const userData = {  email, password, message, username,
+    const userData = {  email, password, message, username,role,
       phoneNumber,
     };
     
