@@ -6,7 +6,6 @@ import Product from '../pages/Product'
 import About from '../pages/About'
 import Details from '../pages/Details'
 import Account from '../pages/Account'
-import Cart from '../pages/cart';
 import {Routes, Route} from 'react-router-dom'
 import UserProfile from '../pages/UserProfile'
 
@@ -19,7 +18,6 @@ const Routers = () => {
     <Route path="/product" element={<Product />} />
     <Route path="/about" element={<About />} />
     <Route path="/account" element={<Account />} />
-    <Route path="/cart" element={<Cart />} />
     <Route path='/userProfile' element={<UserProfile/>}/>
 
   </Routes>

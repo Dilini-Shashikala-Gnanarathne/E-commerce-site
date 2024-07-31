@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import './Signup.css';
 
@@ -135,13 +135,10 @@ function SignupForm() {
         
         <Form.Group controlId="role">
           <Form.Label>You Are</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Admin or viewer"
-            value={formData.role}
-            onChange={handleChange}
-            required
-          />
+          <Form.Select value={formData.role} onChange={handleChange} required>
+            <option value="viewer">Viewer</option>
+            <option value="admin">Admin</option>
+          </Form.Select>
         </Form.Group>
         
         {error && <p className="error-text">{error}</p>}
@@ -149,6 +146,9 @@ function SignupForm() {
         <Button variant="primary" type="submit">
           Sign Up
         </Button>
+        <p>
+          <br/> Already have an account? <Link to="/login"><span className='login-span'>Login</span></Link>
+        </p>
       </Form>
     </div>
   );

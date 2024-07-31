@@ -7,7 +7,6 @@ import { FaCartShopping } from 'react-icons/fa6';
 
 import { useNavigate } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Cart from '../pages/cart.js';
 import { useAuth } from '../context/AuthContext.js';
 
 import './Searchbar.css'
@@ -70,7 +69,6 @@ export default function Searchbar() {
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Cart />
                 </Offcanvas.Body>
               </Offcanvas>
             </div>
