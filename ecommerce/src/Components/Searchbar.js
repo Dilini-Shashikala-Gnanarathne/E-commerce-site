@@ -15,14 +15,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Searchbar() {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();  // Get the logout function from AuthContext
+  const { user } = useAuth(); 
 
   const handleUserIconClick = () => {
     navigate('/userProfile');
   };
 
   const handleLogoutClick = () => {
-    logout();
     navigate('/login');
   };
 
