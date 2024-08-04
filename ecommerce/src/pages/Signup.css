@@ -1,45 +1,43 @@
-
 .auth-form-container-sign {
   margin-top: 50px;
   margin-bottom: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .signup-form {
-    margin-top: 50px;
-    width: 400px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .signup-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .signup-form .form-group {
-    margin-bottom: 10px;
-  }
-  
-  .signup-form label {
-    font-weight: 600;
-    margin-top: 25px;
-  }
-  
-  .signup-form .btn-primary {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 50px;
-  }
-  
-  .signup-form .text-muted {
-    font-size: 12px;
-    color: #666;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-form {
+  margin-top: 50px;
+  width: 400px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.signup-form .form-group {
+  margin-bottom: 10px;
+}
+
+.signup-form label {
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+.signup-form .btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.signup-form .text-muted {
+  font-size: 12px;
+  color: #666;
+}

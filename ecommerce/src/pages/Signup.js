@@ -133,14 +133,6 @@ function SignupForm() {
           />
         </Form.Group>
         
-        <Form.Group controlId="role">
-          <Form.Label>You Are</Form.Label>
-          <Form.Select value={formData.role} onChange={handleChange} required>
-            <option value="viewer">Viewer</option>
-            <option value="admin">Admin</option>
-          </Form.Select>
-        </Form.Group>
-        
         {error && <p className="error-text">{error}</p>}
         
         <Button variant="primary" type="submit">
