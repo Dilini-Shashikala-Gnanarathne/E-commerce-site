@@ -49,11 +49,7 @@ export default function Searchbar() {
                             <Row style={{ fontSize: "18px", height: "60vh" }}>
                               <Col md={18}>
                                 <Card.Text><strong>Username:</strong> {user.username}</Card.Text>
-                                <Card.Text><strong>Email:</strong> {user.email}</Card.Text>
                                 <Card.Text><strong>Address:</strong> {user.address}</Card.Text>
-                                <Card.Text><strong>Country:</strong> {user.country}</Card.Text>
-                                <Card.Text><strong>Phone Number:</strong> {user.phoneNumber}</Card.Text>
-                                <Card.Text><strong>Postal Code:</strong> {user.postalCode || 'Not provided'}</Card.Text>
                                 <Card.Text><strong>Shipped:</strong> {user.ship || "Not Ship"}</Card.Text>
                                 <Card.Text><strong>Cart Total Amount:</strong> {user.cart?.totalAmount || '0'}</Card.Text>
                               </Col>
