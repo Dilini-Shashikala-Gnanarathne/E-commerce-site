@@ -1,3 +1,13 @@
 .body{
   background-color: blue;
 }
+
+.work-counter {
+  color: rgb(242, 13, 13);
+  font-size: 36px;
+  text-align: center;
+  padding: 20px;
+  background-color: #6d6564;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

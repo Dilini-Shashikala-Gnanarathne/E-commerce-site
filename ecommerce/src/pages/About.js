@@ -44,16 +44,6 @@ const About = () => {
                       from your desktop or mobile device, we ensure seamless
                       navigation and a secure checkout process.
                     </p>
-                    <a
-                      className="about-link-1"
-                      href="/company-profile.pdf"
-                      target="_blank"
-                    >
-                      Company Profile
-                    </a>
-                    <a className="about-link-2" href="#contact">
-                      Contact Us
-                    </a>
                   </div>
                 </div>
               </div>
