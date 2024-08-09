@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import axios from 'axios';
 import './Signup.css';
 
-function SignupForm() {
+const SignupForm=()=> {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -36,7 +36,7 @@ function SignupForm() {
   };
 
   const addUser = (data) => {
-    Axios.post('http://localhost:3001/api/createUser', data)
+    axios.post('http://localhost:3001/api/createUser', data)
       .then(() => {
         resetForm();
         setError(null);

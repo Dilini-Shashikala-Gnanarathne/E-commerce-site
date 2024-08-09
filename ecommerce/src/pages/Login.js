@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Axios from 'axios';
+import axios from 'axios';
 import './Login.css';
 
-export default function Login() {
+const Login=()=> {
   const [formData, setFormData] = useState({
     password: '',
     email: '',
@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   const loging = (data) => {
-    Axios.post('http://localhost:3001/api/login', data)
+    axios.post('http://localhost:3001/api/login', data)
       .then((response) => {
         const { token, email } = response.data;
         console.log(`Login: ${token}`);
@@ -87,3 +87,6 @@ export default function Login() {
     </div>
   );
 }
+
+
+export default Login;
