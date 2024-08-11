@@ -7,10 +7,8 @@ const Account = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
     phoneNumber: '',
     message: '',
-    role: '', 
   });
 
   const [error, setError] = useState(null);
@@ -25,10 +23,6 @@ const Account = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.role !== 'admin' && formData.role !== 'viewer') {
-      setError('Role must be either admin or viewer');
-      return;
-    }
     addUser(formData);
   };
 
@@ -51,10 +45,8 @@ const Account = () => {
     setFormData({
       username: '',
       email: '',
-      password: '',
       phoneNumber: '',
       message: '',
-      role: '', 
     });
   };
 
@@ -91,14 +83,6 @@ const Account = () => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="password" className="mt-2">
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </Form.Group>
               <Form.Group controlId="phoneNumber" className="mt-2">
                 <Form.Control
                   type="text"
@@ -113,14 +97,6 @@ const Account = () => {
                   rows={3}
                   placeholder="Message"
                   value={formData.message}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="role" className="mt-2">
-                <Form.Control
-                  type="text"
-                  placeholder="Role (admin/viewer)"
-                  value={formData.role}
                   onChange={handleChange}
                 />
               </Form.Group>
